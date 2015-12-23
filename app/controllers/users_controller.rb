@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   end
   
   def edit
+    if current_user != @user
+      redirect_to :root
+    end
   end
   
   def update
