@@ -19,12 +19,12 @@ class UsersController < ApplicationController
   end
   
   def edit
-    if current_user != @user
-      redirect_to :root
-    end
+    redirect_to :root if current_user != @user
   end
   
   def update
+    redirect_to :root if current_user != @user
+    
     if @user.update(user_params)
       flash[:success] = "Updated your profile!"
       redirect_to @user
