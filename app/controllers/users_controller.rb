@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :followings, :followers]
   
   def show
     @microposts = @user.microposts.order(created_at: :desc)
@@ -32,6 +32,14 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def followings
+    redirect_to :root if current_user != @user
+  end
+  
+  def followers
+    redirect_to :root if current_user != @user
   end
   
   private
