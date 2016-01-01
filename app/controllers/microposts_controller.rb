@@ -20,6 +20,12 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
   
+  def search
+    return if !params[:q]
+    #TODO 厳密にはワイルドカード（%や_）のエスケープが必要になるはず
+    @microposts = Micropost.where("content like ?", "%#{params[:q]}%").order(created_at: :desc)
+  end
+  
   private
   def micropost_params
     params.require(:micropost).permit(:content)

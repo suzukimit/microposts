@@ -33,6 +33,13 @@
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
+      <%= form_tag search_path, class: "navbar-form navbar-right", method: :get do %>
+        <div class="form-group">
+          <%= text_field_tag :q, params[:q], class: "form-control margin-bottom-0", placeholder: "keyword" %>
+        </div>
+        <% #TODO: アイコン上手くいかない... button_tag '<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', class: "btn btn-info" %>
+        <%= button_tag "search", class: "btn btn-info" %>
+      <% end %>
     </nav>
   </div>
 </header>
