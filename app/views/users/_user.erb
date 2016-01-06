@@ -3,8 +3,8 @@
     <section class="user_info">
       <div class="col-md-12">
         <h1>
-          <%= gravatar_for user %>
-          <%= user.name %>
+          <%= link_to(gravatar_for(user), user_path(user)) %>
+          <%= link_to(user.name, user_path(user)) %>
         </h1>
       </div>
       <div class="col-md-12">

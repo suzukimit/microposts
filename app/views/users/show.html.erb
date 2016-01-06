@@ -12,6 +12,10 @@
       </div>
       <div class="col-md-12">
         <%= @user.profile %>
+        <p>
+          <%= link_to "Followings - " + @user.following_users.size.to_s, controller: "users", action: "followings", id: @user  %>
+          <%= link_to "Followers - "  + @user.follower_users.size.to_s,  controller: "users", action: "followers",  id: @user  %>
+        </p>
       </div>
     </section>
   </aside>
