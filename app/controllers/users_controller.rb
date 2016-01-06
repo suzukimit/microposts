@@ -35,11 +35,9 @@ class UsersController < ApplicationController
   end
   
   def followings
-    redirect_to :root if current_user != @user
   end
   
   def followers
-    redirect_to :root if current_user != @user
   end
   
   private
