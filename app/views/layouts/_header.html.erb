@@ -37,8 +37,9 @@
         <div class="form-group">
           <%= text_field_tag :q, params[:q], class: "form-control margin-bottom-0", placeholder: "keyword" %>
         </div>
-        <% #TODO: アイコン上手くいかない... button_tag '<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', class: "btn btn-info" %>
-        <%= button_tag "search", class: "btn btn-info" %>
+        <%= button_tag class: "btn btn-info" do %>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        <% end %>
       <% end %>
     </nav>
   </div>
