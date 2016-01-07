@@ -21,7 +21,7 @@ class MicropostsController < ApplicationController
   end
   
   def search
-    return if !params[:q]
+    redirect_to root_url if !params[:q]
     #TODO 厳密にはワイルドカード（%や_）のエスケープが必要になるはず
     @microposts = Micropost.where("content like ?", "%#{params[:q]}%").order(created_at: :desc)
   end
